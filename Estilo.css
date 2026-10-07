@@ -1,0 +1,278 @@
+html {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-image: url(imagenes/Fondo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+}
+
+.contenedor {
+  display: flex !important;
+  flex-direction: row !important;
+  
+  /* 1. ¡LA CLAVE! Permite que las tarjetas salten a la siguiente fila cuando no quepan */
+  flex-wrap: wrap !important; 
+  
+  /* 2. Alinea las tarjetas al inicio (la cuarta se irá al extremo izquierdo, abajo de la primera) */
+  justify-content: flex-start !important; 
+  
+  /* Separación exacta entre tarjetas (horizontal y vertical) */
+  gap: 30px !important; 
+  
+  /* Protección de los bordes de la pantalla */
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 50px 50px 10px 50px;
+}
+
+body .sectionA, body .sectionB, body .sectionC, body .sectionD, body h2 {
+  font-size: 1rem;
+}
+
+.sectionA, .sectionB, .sectionC, .sectionD {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin: 0;
+  border-radius: 45px;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+  
+  /* 3. ¡MÁXIMO 3 POR FILA! */
+  /* Calculamos el tamaño para que entren 3 tarjetas exactas sumando los espacios (gap) */
+  flex: 1 1 calc(33.33% - 20px) !important; 
+  max-width: calc(33.33% - 20px) !important;
+  min-width: 300px; /* Evita que se colapsen en pantallas muy pequeñas */
+}
+
+.tarjeta-imagen {
+  width: 100%; /* Hace que la imagen responda correctamente al tamaño de la tarjeta */
+  max-width: 400px;
+  height: 300px;
+  border-radius: 20px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease; /* Transición suave en ambas direcciones (ida y vuelta) */
+}
+
+.categoria {
+  margin: 0 0 15px 0;    /* Espacio abajo del título para separarlo de la foto */
+  font-family: sans-serif;
+  color: #333;
+}
+
+.descripcion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;             /* Separación entre descripción y botón */
+  width: 100%;
+  order: 1;
+  margin: 10px 10px 10px 10px;
+}
+
+
+.titulo {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.precio {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.mover {
+  display: flex;
+  justify-content: space-between; /* Empuja el h2 a la izquierda y el p a la derecha */
+  align-items: center;            /* Los nivela perfectamente en el centro de la línea */
+  width: 100%;                    /* Ocupa todo el ancho disponible de la sección */
+  margin-bottom: 20px;            /* Separa esta fila de las tarjetas que están abajo */
+  padding-top: 10px;
+  box-sizing: border-box;
+}
+
+.mover h2 {
+  margin: 0;                      /* Elimina el margen por defecto del h2 */
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  order: 2; /* Posición 2 */
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-carrito {
+  order: 3;          /* Cambiado de 2 a 3 para que baje al final */
+  text-align: right;
+  width: 100%;       /* Permite alinear el contenido a la derecha de la tarjeta */
+  text-align: center;
+  border-style: solid;
+  border-radius: 35px;
+  padding: 20px 0;
+  width: 100%;
+  color: white;
+  background-color: rgb(174, 23, 23);
+  text-decoration: none;
+  font-weight: 800;
+  transition: all 0.4s ease;
+}
+
+.btn-carrito:hover {
+  background-color: rgb(255, 0, 0);
+  transition: background-color 0.4s ease;
+  curor: pointer;
+}
+
+.sectionA:hover, .sectionB:hover, .sectionC:hover, .sectionD:hover {
+  box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.sectionA:hover .tarjeta-imagen, .sectionB:hover .tarjeta-imagen, .sectionC:hover .tarjeta-imagen, .sectionD:hover .tarjeta-imagen {
+  filter: grayscale(0%);
+  transition: filter 0.3s ease;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+  gap: 1px;
+}
+
+.precio {
+  border-style: solid;
+  border-radius: 35px;
+  padding-top: 2px;
+  padding-inline: 15px;
+  padding-bottom: 2px;
+  color: white;
+  background-color: red;
+}
+
+.sectionD div p {
+  background-color: rgb(55, 170, 224);
+}
+
+.sectionD .btn-carrito {
+  background-color: rgb(55, 170, 224);
+}
+
+.sectionC div p {
+  background-color: orange;
+  color: black;
+  border-color: orange;
+}
+
+.sectionC .btn-carrito {
+  background-color: orange;
+  color: black;
+  border-color: orange;
+}
+
+.sectionB div p {
+  background-color: rgba(13, 133, 33, 0.934);
+  color: black;
+  border-color: rgba(13, 133, 33, 0.934);
+}
+
+.sectionB:hover .btn-carrito {
+  background-color: rgba(13, 133, 33, 0.934);
+  color: black;
+  border-color: rgba(13, 133, 33, 0.934);
+}
+
+.sectionC:hover .btn-carrito {
+  color: white;
+  background-color: rgb(120, 84, 15);
+  border-color: rgb(120, 84, 15);
+}
+
+.sectionD:hover .btn-carrito {
+  background-color: rgb(54, 114, 162);
+}
+
+footer {
+  background-color: #222;
+  width: 100vw;
+  margin-left: -50px !important; /* Contrarresta exactamente el padding-left del body */
+  margin-right: -50px !important; /* Contrarresta exactamente el padding-right del body */
+  margin-bottom: -50px !important;
+  margin-top: 5px !important;
+  box-sizing: border-box !important;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+footer h2 {
+  font-size: 1.5rem;
+}
+
+.enlace-footer {
+  text-decoration: none;
+  color: white;
+  transition:color 0.3 ease;
+}
+
+.enlace-footer:hover {
+  color: rgb(70, 209, 224);
+  transition: 0.4s ease;
+}
+
+.TagA {
+  border-style: solid !important;
+  border-radius: 35px !important;
+  color: #ec1111;
+}
+
+.tags li {
+  border: 1px solid;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.sectionA .tags li {
+  background-color: #f38b8b;
+  border-color: #f38b8b;
+}
+
+.sectionB .tags li {
+  background-color: rgba(13, 133, 33, 0.934);
+  border-color: rgba(13, 133, 33, 0.934);
+}
+
+.sectionC .tags li {
+  background-color: orange;
+  border-color: orange;
+}
+
+.sectionD .tags li {
+  background-color: rgb(55, 170, 224);
+  border-color: rgb(55, 170, 224);
+}
