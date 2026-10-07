@@ -63,21 +63,48 @@ body .sectionA, body .sectionB, body .sectionC, body .sectionD, body h2 {
   min-width: 300px; /* Evita que se colapsen en pantallas muy pequeñas */
 }
 
-.tarjeta-imagen {
-  width: 100%; /* Hace que la imagen responda correctamente al tamaño de la tarjeta */
+.imagen {
+  display: flex;
+  position: relative; /* ¡INDISPENSABLE! Mantiene la categoría atrapada aquí dentro */
+  width: 100%;
   max-width: 400px;
+  border-radius: 35px;
+  overflow: hidden; /* Corta la etiqueta para que respete el redondeado de la esquina */
+}
+
+.tarjeta-imagen {
+  width: 100%;
   height: 300px;
   border-radius: 20px;
   object-fit: cover;
   filter: grayscale(100%);
-  transition: filter 0.5s ease; /* Transición suave en ambas direcciones (ida y vuelta) */
+  transition: filter 0.5s ease;
+  display: block; /* Elimina espacios vacíos fantasmas abajo de la foto */
 }
 
 .categoria {
-  margin: 0 0 15px 0;    /* Espacio abajo del título para separarlo de la foto */
-  font-family: sans-serif;
-  color: #333;
+  position: absolute; /* Se despega del flujo y flota */
+  top: 0;             /* Pegado al borde superior */
+  left: 0;            /* Pegado al borde izquierdo */
+  z-index: 10;        /* Asegura que quede siempre por encima de la foto */
+  
+  /* Diseño de la etiqueta que tapa la esquina */
+  background-color: #c94a38; /* El color rojo/naranja de tu marca */
+  color: white;              /* Letras blancas para excelente contraste */
+  margin: 0;                 /* Elimina márgenes que la despeguen de la esquina */
+  padding: 8px 16px;         /* Espacio interno para que se vea como una cinta o pastilla */
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;          /* Texto grueso y legible */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas automáticamente (opcional) */
+  
+  /* Efecto de borde redondeado exclusivo para la esquina inferior derecha */
+  border-bottom-right-radius: 35px; 
+  
+  /* Sombra sutil para dar la sensación de estar "apoyado" sobre la foto */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); 
 }
+
 
 .descripcion {
   display: flex;
