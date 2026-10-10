@@ -255,6 +255,7 @@ footer {
   display: flex;
   justify-content: space-around;
   padding: 20px;
+  margin: 0 !important;
 }
 
 footer h2 {
@@ -303,3 +304,10 @@ footer h2 {
   background-color: rgb(55, 170, 224);
   border-color: rgb(55, 170, 224);
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
